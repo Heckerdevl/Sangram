@@ -1,8 +1,4 @@
 import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { useToast } from '@/hooks/use-toast';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -11,7 +7,6 @@ const Register = () => {
     college: '',
     events: []
   });
-  const { toast } = useToast();
 
   const events = [
     'Football', 'Hockey', 'Cricket', 'Athletics', 'Badminton',
@@ -31,26 +26,18 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.college || formData.events.length === 0) {
-      toast({
-        title: "Error",
-        description: "Please fill all fields and select at least one event.",
-        variant: "destructive"
-      });
+      alert("Please fill all fields and select at least one event.");
       return;
     }
 
-    toast({
-      title: "Registration Successful!",
-      description: "Your registration has been submitted successfully."
-    });
-
+    alert("Registration Successful! Your registration has been submitted successfully.");
     setFormData({ name: '', email: '', college: '', events: [] });
   };
 
   return (
     <div className="min-h-screen bg-[url('/assets/one.png')] bg-cover bg-center pt-16">
       {/* Hero Section */}
-      <section className=" py-20">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-white to-yellow-300 bg-clip-text text-transparent mb-6">
             Join the Action
@@ -65,48 +52,48 @@ const Register = () => {
       </section>
 
       {/* Registration Form */}
-      <section className="py-16 ">
+      <section className="py-16">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-l from-yellow-400 opacity-80 to-yellow-600 rounded-lg shadow-lg p-8 ">
+          <div className="bg-gradient-to-l from-yellow-400 opacity-80 to-yellow-600 rounded-lg shadow-lg p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className='text-white' >
-                <Label htmlFor="name">Full Name *</Label>
-                <Input
+              <div className="text-white">
+                <label htmlFor="name" className="block mb-1">Full Name *</label>
+                <input
                   id="name"
                   type="text"
                   value={formData.name}
                   onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
                   placeholder="Enter your full name"
-                  className="mt-1"
+                  className="w-full px-4 py-2 rounded-md bg-white text-black border-none focus:outline-none"
                 />
               </div>
 
-              <div className='text-white'>
-                <Label htmlFor="email">Email Address *</Label>
-                <Input
+              <div className="text-white">
+                <label htmlFor="email" className="block mb-1">Email Address *</label>
+                <input
                   id="email"
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                   placeholder="Enter your email address"
-                  className="mt-1"
+                  className="w-full px-4 py-2 rounded-md bg-white text-black border-none focus:outline-none"
                 />
               </div>
 
-              <div className='text-white'>
-                <Label htmlFor="college">College/Institution *</Label>
-                <Input
+              <div className="text-white">
+                <label htmlFor="college" className="block mb-1">College/Institution *</label>
+                <input
                   id="college"
                   type="text"
                   value={formData.college}
                   onChange={(e) => setFormData(prev => ({ ...prev, college: e.target.value }))}
                   placeholder="Enter your college name"
-                  className="mt-1"
+                  className="w-full px-4 py-2 rounded-md bg-white text-black border-none focus:outline-none"
                 />
               </div>
 
-              <div className='text-white'>
-                <Label>Events Interested In * (Select multiple)</Label>
+              <div className="text-white">
+                <label className="block mb-2">Events Interested In * (Select multiple)</label>
                 <div className="mt-2 grid grid-cols-2 md:grid-cols-3 gap-2">
                   {events.map((event) => (
                     <label key={event} className="flex items-center space-x-2 cursor-pointer">
@@ -114,20 +101,20 @@ const Register = () => {
                         type="checkbox"
                         checked={formData.events.includes(event)}
                         onChange={() => handleEventChange(event)}
-                        className="rounded border-gray-300 text-red-600 focus:ring-red-500"
+                        className="rounded border-gray-300 text-yellow-600 focus:ring-yellow-500"
                       />
-                      <span className="text-sm text-gray-700">{event}</span>
+                      <span className="text-sm text-gray-800">{event}</span>
                     </label>
                   ))}
                 </div>
               </div>
 
-              <Button
+              <button
                 type="submit"
-                className="w-full bg-gradient-to-l from-white to-yellow-400 text-black py-3 text-lg font-semibold"
+                className="w-full bg-gradient-to-l from-white to-yellow-400 text-black py-3 text-lg font-semibold rounded-md hover:scale-105 transition-all duration-200"
               >
                 Submit Registration
-              </Button>
+              </button>
             </form>
           </div>
         </div>
