@@ -91,7 +91,7 @@ const Home = () => {
               Contact Us
             </h2>
 
-            <div className="flex justify-center space-x-6 mb-8">
+            {/* <div className="flex justify-center space-x-6 mb-8">
               <div className="text-center">
                 <div className="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-2">
                   <Mail className="text-white" size={20} />
@@ -110,7 +110,7 @@ const Home = () => {
                 </div>
                 <span className="text-white text-sm">Instagram</span>
               </div>
-            </div>
+            </div> */}
 
             <form className="space-y-4 h-100">
               <div>
