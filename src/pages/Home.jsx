@@ -60,7 +60,7 @@ const Home = () => {
       </section>
 
       {/* Past Sponsors */}
-      <section className="py-16 bg-black h-200">
+      <section className="py-16 bg-black h-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-white to-yellow-300 bg-clip-text text-transparent">
             Our Past Sponsors
